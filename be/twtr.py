@@ -32,7 +32,7 @@ g = dict()
 
 # mongo
 # mongo_client = MongoClient('mongodb://localhost:27017/')
-mongo_client = MongoClient("mongodb+srv://patrick:XHoVMiEHxrSIj7vN@patrick.2qgfy4r.mongodb.net/tweets?retryWrites=true&w=majority")
+mongo_client = MongoClient("mongodb+srv://patrick:XHoVMiEHxrSIj7vN@patrick.2qgfy4r.mongodb.net/?retryWrites=true&w=majority")
 class MyMongo(object):
     def __init__(self, db_name):
         self.db_name = db_name
@@ -303,7 +303,7 @@ def atlas_connect():
     # });
 
     # Python
-    client = pymongo.MongoClient("mongodb+srv://patrick:XHoVMiEHxrSIj7vN@patrick.2qgfy4r.mongodb.net/tweets?retryWrites=true&w=majority")
+    client = pymongo.MongoClient("mongodb+srv://patrick:XHoVMiEHxrSIj7vN@patrick.2qgfy4r.mongodb.net/?retryWrites=true&w=majority")
     db = client.test
 
 
@@ -436,15 +436,15 @@ def add_tweet():
     private = request.json['private']
     pic = request.json['pic']
 
-    access_token = request.json['access-token']
-    print("access_token:", access_token)
-    permission = verify_token(access_token)
-    if not permission[0]: 
-        print("tweet submission denied due to invalid token!")
-        print(permission[1])
-        return permission[1]
-    else:
-        print('access token accepted!')
+    # access_token = request.json['access-token']
+    # print("access_token:", access_token)
+    # permission = verify_token(access_token)
+    # if not permission[0]: 
+    #     print("tweet submission denied due to invalid token!")
+    #     print(permission[1])
+    #     return permission[1]
+    # else:
+    #     print('access token accepted!')
 
     tweet = dict(user=user, description=description, private=private,
                 upvote=0, date=datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
