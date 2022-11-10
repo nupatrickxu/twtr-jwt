@@ -15,7 +15,8 @@ ENV PATH /usr/src/app/node_modules/.bin:$PATH
 COPY package.json .
 COPY package-lock.json .
 RUN npm ci
-#RUN npm install react-scripts@4.0.0 --silent
+# RUN npm install -g npm@8.19.3
+# RUN npm install react-scripts@4.0.0 --silent
 
 # set environment variables
 ARG REACT_APP_API_SERVICE_URL
@@ -35,8 +36,8 @@ RUN npm run build
 FROM nginx
 
 # update nginx conf
-#RUN rm -rf /etc/nginx/conf.d
-#COPY conf /etc/nginx
+# RUN rm -rf /etc/nginx/conf.d
+# COPY conf /etc/nginx
 
 # copy static files
 COPY --from=builder /usr/src/app/build /usr/share/nginx/html
