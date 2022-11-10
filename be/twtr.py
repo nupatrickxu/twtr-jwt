@@ -435,7 +435,6 @@ def add_tweet():
     description = request.json['description']
     private = request.json['private']
     pic = request.json['pic']
-
     # access_token = request.json['access-token']
     # print("access_token:", access_token)
     # permission = verify_token(access_token)
