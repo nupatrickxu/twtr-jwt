@@ -32,7 +32,7 @@ g = dict()
 
 # mongo
 # mongo_client = MongoClient('mongodb://localhost:27017/')
-mongo_client = MongoClient("mongodb+srv://patrick:XHoVMiEHxrSIj7vN@patrick.2qgfy4r.mongodb.net/?retryWrites=true&w=majority")
+mongo_client = MongoClient("mongodb+srv://patrick:XHoVMiEHxrSIj7vN@patrick.2qgfy4r.mongodb.net/tweets?retryWrites=true&w=majority")
 class MyMongo(object):
     def __init__(self, db_name):
         self.db_name = db_name
@@ -303,7 +303,7 @@ def atlas_connect():
     # });
 
     # Python
-    client = pymongo.MongoClient("mongodb+srv://patrick:XHoVMiEHxrSIj7vN@patrick.2qgfy4r.mongodb.net/?retryWrites=true&w=majority")
+    client = pymongo.MongoClient("mongodb+srv://patrick:XHoVMiEHxrSIj7vN@patrick.2qgfy4r.mongodb.net/tweets?retryWrites=true&w=majority")
     db = client.test
 
 
