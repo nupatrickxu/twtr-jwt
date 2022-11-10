@@ -12,7 +12,7 @@ phases:
   
   pre_build: 
     commands:
-      - docker login -u nupatrickxu -p P@ssw0rd
+      - docker login -u nupatrickxu -p 19970929Xpc.
       - echo logging in to ecr... 
       - > 
         aws ecr get-login-password --region us-east-1 \ 
