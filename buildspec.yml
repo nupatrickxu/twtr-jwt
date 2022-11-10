@@ -17,7 +17,6 @@ phases:
       - > 
         docker login -u AWS -p $(aws ecr get-login-password --region us-east-1) 213511591460.dkr.ecr.us-east-1.amazonaws.com
         
-        
 #        aws ecr get-login-password --region us-east-1 \ 
 #        | docker login --username AWS --password-stdin 213511591460.dkr.ecr.us-east-1.amazonaws.com 
   
@@ -26,14 +25,11 @@ phases:
     - echo building dev images... 
     - docker-compose up -d --build 
     - echo building prod images... 
-    - >
-      docker build --cache-from 213511591460.dkr.ecr.us-east-1.amazonaws.com/twtr-be:prod -f be/Dockerfile -t 213511591460.dkr.ecr.us-east-1.amazonaws.com/twtr-be:prod ./be
     - > 
-      docker build --target builder --cache-from 213511591460.dkr.ecr.us-east-1.amazonaws.com/twtr-fe:builder -f fe/Dockerfile -t 213511591460.dkr.ecr.us-east-1.amazonaws.com/twtr-fe:builder --build-arg NODE_ENV=production --build-arg REACT_APP_API_SERVICE_URL=$REACT_APP_API_SERVICE_URL ./fe
-#      docker build -f be/Dockerfile -t 213511591460.dkr.ecr.us-east-1.amazonaws.com/twtr-be:prod ./be 
+      docker build -f be/Dockerfile -t 213511591460.dkr.ecr.us-east-1.amazonaws.com/twtr-be:prod ./be
     - > 
-      docker build --cache-from 213511591460.dkr.ecr.us-east-1.amazonaws.com/twtr-fe:prod -f fe/Dockerfile -t 213511591460.dkr.ecr.us-east-1.amazonaws.com/twtr-fe:prod ./fe
-#      docker build -f fe/Dockerfile -t 213511591460.dkr.ecr.us-east-1.amazonaws.com/twtr-fe:prod --build-arg NODE_ENV=production --build-arg REACT_APP_API_SERVICE_URL=$REACT_APP_API_SERVICE_URL ./fe
+      docker build -f fe/Dockerfile -t 213511591460.dkr.ecr.us-east-1.amazonaws.com/twtr-fe:prod --build-arg NODE_ENV=production --build-arg REACT_APP_API_SERVICE_URL=$REACT_APP_API_SERVICE_URL ./fe
+
   post_build: 
     commands: 
     - echo pushing prod images to ecr... 
