@@ -32,7 +32,7 @@ g = dict()
 
 # mongo
 # mongo_client = MongoClient('mongodb://localhost:27017/')
-mongo_client = MongoClient('mongodb+srv://pengchengxu:uvq4NCnwzIAuKp7s@cluster0.vwewmtd.mongodb.net/tweets?retryWrites=true&w=majority')
+mongo_client = MongoClient("mongodb+srv://patrick:XHoVMiEHxrSIj7vN@patrick.2qgfy4r.mongodb.net/?retryWrites=true&w=majority")
 class MyMongo(object):
     def __init__(self, db_name):
         self.db_name = db_name
@@ -343,7 +343,7 @@ def update_one(r):
                 {"_id" : r['_id']},
                 {"$set": r},
                 upsert=True)
-            printg ("...update_one() to mongo acknowledged:", result.modified_count)
+            print ("...update_one() to mongo acknowledged:", result.modified_count)
         except Exception as e:
             print(e)
 
