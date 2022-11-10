@@ -303,7 +303,7 @@ def atlas_connect():
     # });
 
     # Python
-    client = pymongo.MongoClient('mongodb+srv://pengchengxu:uvq4NCnwzIAuKp7s@cluster0.vwewmtd.mongodb.net/tweets?retryWrites=true&w=majority')
+    client = pymongo.MongoClient("mongodb+srv://patrick:XHoVMiEHxrSIj7vN@patrick.2qgfy4r.mongodb.net/?retryWrites=true&w=majority")
     db = client.test
 
 
