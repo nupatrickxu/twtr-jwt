@@ -13,6 +13,7 @@ phases:
   
   pre_build: 
     commands:
+      - docker login 
       - echo logging in to ecr... 
       - > 
         aws ecr get-login-password --region $AWS_REGION | docker login --username AWS --password-stdin 213511591460.dkr.ecr.$AWS_REGION.amazonaws.com 
